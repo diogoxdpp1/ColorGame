@@ -22,7 +22,7 @@ public class Main {
     public static void ColorPicker() {
         Random random = new Random();
         for (int i = 0; i < 10; i++) {
-            int Randnum = random.nextInt(7) + 1;
+            int Randnum = random.nextInt(3) + 1;
             if (Randnum == 1) {
                 ColorArr[i] = "Red";
             }
@@ -32,25 +32,16 @@ public class Main {
             if (Randnum == 3) {
                 ColorArr[i] = "Green";
             }
-            if (Randnum == 4) {
-                ColorArr[i] = "Purple";
-            }
-            if (Randnum == 5) {
-                ColorArr[i] = "Black";
-            }
-            if (Randnum == 6) {
-                ColorArr[i] = "White";
-            }
         }
     }
 
         public static void Game() {
             for (int i = 0; i < ColorArr.length; i++) {
                 System.out.println(Arrays.toString(ColorArr));
-                if (user.getTries() != 3) {
-                    System.out.println("You have " + (3-user.getTries()) + " tries" + "\n" +
-                            "And you have currently " + user.getTotalPoints() + " total points" + "\n" +
-                            "Have a guess what the next Color will be: (In caps, e.g Red)");
+                if (user.getTries() != 2) {
+                    System.out.println("You have " + (3-user.getTries()) + " tries "  +
+                            "and you have currently " + user.getTotalPoints() + " total points" + "\n" +
+                            "Have a guess what the next Color will be: (In caps, e.g Red), pick from Red Green or Blue");
                     String guess = input.next();
                     if (guess.equals(ColorArr[i])) {
                         user.setTotalPoints(user.getTotalPoints() + 1);
@@ -58,7 +49,7 @@ public class Main {
                         user.setTries(0);
                     } else {
                         user.setTries(user.getTries() + 1);
-                        System.out.println("You got it wrong u have: " + (3 - user.getTries()) + " tries left");
+                        System.out.println("You got it wrong u have: " + (2 - user.getTries()) + " tries left");
                     }
                 } else {
                     System.out.println("You have no tries left! game over");
